@@ -1,2 +1,2 @@
 # roguelike
-for nwapw
+for nwapw 2020
