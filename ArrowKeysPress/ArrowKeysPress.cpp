@@ -9,12 +9,12 @@ using namespace std;
 
 int main()
 {
-    int c = 0;
+    int in = 0;
     while(1)
     {
-        c = 0;
+        in = 0;
 
-        switch((c = getch())) {
+        switch((in = getch())) {
         case KEY_UP:
             cout << endl << "Up" << endl; // Detect Up Arrow Key
             break;
