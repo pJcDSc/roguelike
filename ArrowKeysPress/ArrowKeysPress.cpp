@@ -9,23 +9,24 @@ using namespace std;
 
 int main()
 {
-    int in = 0;
-    while(1)
-    {
-        in = 0;
+    int in = 0; // Variable Name "in" Stands for Input
 
-        switch((in = getch())) {
+
+    while(in = getch())
+    {
+
+        switch(in) {
         case KEY_UP:
-            cout << endl << "Up" << endl; // Detect Up Arrow Key
+            cout << endl << "Up Arrow Key Was Pressed" << endl; // Detect Up Arrow Key
             break;
         case KEY_DOWN:
-            cout << endl << "Down" << endl; // Detect Down Arrow Key
+            cout << endl << "Down Arrow Key Was Pressed" << endl; // Detect Down Arrow Key
             break;
         case KEY_LEFT:
-            cout << endl << "Left" << endl; // Detect Left Arrow Key
+            cout << endl << "Left Arrow Key Was Pressed" << endl; // Detect Left Arrow Key
             break;
         case KEY_RIGHT:
-            cout << endl << "Right" << endl; // Detect Right Arrow Key
+            cout << endl << "Right Arrow Key Was Pressed" << endl; // Detect Right Arrow Key
             break;
         }
 
