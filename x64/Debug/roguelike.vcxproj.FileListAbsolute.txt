@@ -1,0 +1,2 @@
+C:\Users\Huanhuan\Downloads\roguelike (1)\roguelike\x64\Debug\roguelike.exe
+C:\Users\Huanhuan\Downloads\roguelike (1)\roguelike\x64\Debug\roguelike.pdb
