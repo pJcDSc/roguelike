@@ -1,9 +1,4 @@
-﻿  Bat.cpp
-  Bear.cpp
-  Human.cpp
-  main.cpp
-  Spider.cpp
-  Generating Code...
+﻿  main.cpp
   roguelike.vcxproj -> C:\Users\Huanhuan\Downloads\roguelike (1)\roguelike\x64\Debug\roguelike.exe
   Copying DLL's
   C:\Users\Huanhuan\Downloads\roguelike (1)\roguelike\sfml\lib\sfml-audio-d-2.dll

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Bat::Bat(int hp, int ad, string name, string ctype) : Mutant(hp, ad, name, ctype) {
+Bat::Bat(int hp, int ad, int x, int y) : Mutant(hp, ad, x, y) {
 	//Other Bat things exclusive to Bats
 }
 
@@ -14,6 +14,10 @@ void Bat::moveBehavior() {
 
 void Bat::attackBehavior() {
 	//Etc.
+}
+
+string Bat::getType() {
+	return "Bat";
 }
 
 Bat::~Bat() {

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Bear::Bear(int hp, int ad, string name, string ctype) : Mutant(hp, ad, name, ctype) {
+Bear::Bear(int hp, int ad, int x, int y) : Mutant(hp, ad, x, y) {
 	//Other Bear things exclusive to Bears
 }
 
@@ -14,6 +14,10 @@ void Bear::moveBehavior() {
 
 void Bear::attackBehavior() {
 	//Etc.
+}
+
+string Bear::getType() {
+	return "Bear";
 }
 
 Bear::~Bear() {

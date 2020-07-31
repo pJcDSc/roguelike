@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Human::Human(int hp, int ad, string name, string ctype) : Mutant(hp, ad, name, ctype) {
+Human::Human(int hp, int ad, int x, int y) : Mutant(hp, ad, x, y) {
 	//Other Human things exclusive to Humans
 }
 
@@ -14,6 +14,10 @@ void Human::moveBehavior() {
 
 void Human::attackBehavior() {
 	//Etc.
+}
+
+string Human::getType() {
+	return "Human";
 }
 
 Human::~Human() {

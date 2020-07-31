@@ -4,16 +4,20 @@
 
 using namespace std;
 
-Dog::Dog(int hp, int ad, string name, string ctype) : Mutant(hp, ad, name, ctype) {
-	//Other dog things exclusive to dogs
+Dog::Dog(int hp, int ad, int x, int y) : Mutant(hp, ad, x, y) {
+	//Other Dog things exclusive to Dogs
 }
 
 void Dog::moveBehavior() {
-	//Other dog things exclusive to dogs
+	//Other Dog things exclusive to Dogs
 }
 
 void Dog::attackBehavior() {
 	//Etc.
+}
+
+string Dog::getType() {
+	return "Dog";
 }
 
 Dog::~Dog() {
