@@ -18,11 +18,11 @@ int main() {
 	// window size
 	const int windowX = 800;
 	const int windowY = 800;
-	int spiderNum = 10; // number of monsters in each room (i have deleted the const because we may want to modify it eventually)
-	int batNum = 0;
-	int dogNum = 0;
-	int bearNum = 0;
-	int humanNum = 0;
+	int spiderNum = 4; // number of monsters in each room (i have deleted the const because we may want to modify it eventually)
+	int batNum = 2;
+	int dogNum = 2;
+	int bearNum = 2;
+	int humanNum = 2;
 	int monsterNum = spiderNum + batNum + dogNum + bearNum + humanNum; //Might make a method for this if it gets too repetitive to do this every time
 	int screen = 0; // which screen is showing
 	bool isLeftButtonPressed = false; // avoiding spam clicks or things where multiple things get selected
@@ -373,13 +373,15 @@ int main() {
 			
 			int mDir = m->getDirection();
 
-			if ((m -> getType().compare("Dog") == 0 || m -> getType().compare("Bear") == 0) && mDir < 2) { //Bear and dog need a bit of extra texture manipulation (directional sprites)
+			if (m -> getType().compare("Dog") == 0) { //Bear and dog need a bit of extra texture manipulation (directional sprites)
 				m -> getSprite()->setTextureRect(mDir == 0 ? IntRect(0, 0, 32, 32) : IntRect(0, 32, 32, 32)); //Short ternary statement basically choosing which half of the sprite to use (untested, both bear and dog aren't used yet)
 			}
-			int newX = m->getX() + tileX * directionsx[mDir];
-			int newY = m->getY() + tileY * directionsy[mDir];
-			if (newX > marginX && newX < (windowX - marginX) && newY > marginY && newY < (windowY - marginY)) //not sure if some logic here was changed, I think monsters might stay further away from the edges with this code, but it's a lot shorter
-																											  //And this problem can be easily fixed by adjusting marginX and marginY
+			if (m->getType().compare("Bear") == 0) {
+				m->getSprite()->setTextureRect(mDir == 1 ? IntRect(0, 0, 32, 32) : IntRect(0, 32, 32, 32)); //Short ternary statement basically choosing which half of the sprite to use (untested, both bear and dog aren't used yet
+			}
+
+			if (directionsx[mDir] < 0 && m->getX() > marginX || directionsx[mDir] > 0 && m->getX() < (windowX - marginX) || 
+				directionsy[mDir] < 0 && m->getY() > marginY || directionsy[mDir] > 0 && m->getY() < (windowY - marginY))
 				m->move(directionsx[mDir] * tileX, directionsy[mDir] * tileY);
 			else //Give it a new direction to move in 
 				m->setDirection(rand() % 4);
