@@ -17,6 +17,7 @@ Mutant::Mutant() {
     y = 0;
     direction = rand() % 4;
     sprite = NULL;
+    dead = false;
 }
 
 Mutant::Mutant(int hp, int ad, int x, int y) {
@@ -26,6 +27,7 @@ Mutant::Mutant(int hp, int ad, int x, int y) {
     this -> y = y;
     direction = rand() % 4;
     sprite = NULL;
+    dead = false;
 }
 
 void Mutant::setSprite(Sprite* s) {
@@ -58,6 +60,13 @@ void Mutant::attackBehavior() {
 
 void Mutant::takeDamage(int dmg) {
     healthPoints -= dmg;
+    if (healthPoints <= 0) {
+        dead = true;
+    }
+}
+
+bool Mutant::isDead() {
+    return dead;
 }
 
 void Mutant::setDirection(int d) {

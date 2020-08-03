@@ -30,6 +30,9 @@ public:
     //Default attack function
     virtual void attackBehavior();
 
+    //Check for if mutant is dead
+    bool isDead();
+
     //Getter for health and damage
     int getHealthPoints();
     int getAttackDamage();
@@ -59,5 +62,6 @@ private:
     int healthPoints;
     int attackDamage;
     int direction; //value 0-3 storing which direction it is going, can be changed later
+    bool dead;
     sf::Sprite* sprite;
 };
