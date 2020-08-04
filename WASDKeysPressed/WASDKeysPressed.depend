@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1595648669 source:c:\users\hussein\documents\codeblocksprojects\wasdkeyspressed\wasdkeyspressed.cpp
+	<iostream>
+	<conio.h>
+
