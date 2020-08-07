@@ -309,16 +309,16 @@ int main() {
 			if ((startBounds.contains(mouseCoordinates)) && (screen == 0)) {
 				screen = 1; // change screen to start screen
 			}
-			if (menuBounds.contains(mouseCoordinates) && screen == 0) {
+			else if (menuBounds.contains(mouseCoordinates) && screen == 0) {
 				screen = 2;
 			}
-			if (controlsBounds.contains(mouseCoordinates) && screen == 0) {
+			else if (controlsBounds.contains(mouseCoordinates) && screen == 0) {
 				screen = 3;
 			}
-			if (backBounds.contains(mouseCoordinates) && screen == 2 || screen == 3) {
+			else if (backBounds.contains(mouseCoordinates) && screen == 2 || screen == 3) {
 				screen = 0;
 			}
-			if (continueBounds.contains(mouseCoordinates) && screen == 1) {
+			else if (continueBounds.contains(mouseCoordinates) && screen == 1) {
 				screen = 4;
 			}
 		}
