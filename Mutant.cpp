@@ -20,6 +20,10 @@ Mutant::Mutant() {
     dead = false;
 }
 
+bool Mutant::operator==(const Mutant& other) {
+    return healthPoints == other.healthPoints && x == other.x && y == other.y;
+}
+
 Mutant::Mutant(int hp, int ad, int x, int y) {
     healthPoints = hp;
     attackDamage = ad;
@@ -90,11 +94,12 @@ int Mutant::getHealthPoints() {
 }
 
 int Mutant::getX() {
-    return x;
+    //return x;
+    return sprite->getPosition().x;
 }
 
 int Mutant::getY() {
-    return y;
+    return sprite->getPosition().y;
 }
 
 Mutant::~Mutant() {

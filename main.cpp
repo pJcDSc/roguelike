@@ -385,7 +385,7 @@ int main() {
 			if (m->isDead()) { //remove dead monsters
 				it = mutants.erase(it);
 				delete m;
-				continue;
+								continue;
 			}
 
 			it++;

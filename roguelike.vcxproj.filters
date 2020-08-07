@@ -18,9 +18,6 @@
     <ClCompile Include="Dog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Mutant.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -34,6 +31,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Human.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fighting.and.graphics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

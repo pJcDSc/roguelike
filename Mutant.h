@@ -9,6 +9,8 @@ class Mutant {
 
 public:
 
+    bool Mutant::operator==(const Mutant& other);
+
     //Debug prints?
     void reportStatus();
 
