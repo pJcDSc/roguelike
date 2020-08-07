@@ -190,9 +190,9 @@
     <ClCompile Include="Bat.cpp" />
     <ClCompile Include="Bear.cpp" />
     <ClCompile Include="Dog.cpp" />
-    <ClCompile Include="fighting.and.graphics.cpp" />
     <ClCompile Include="Human.cpp" />
     <ClCompile Include="Mutant.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Spider.cpp" />
   </ItemGroup>
   <ItemGroup>
