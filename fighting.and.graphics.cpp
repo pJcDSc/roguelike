@@ -25,6 +25,8 @@ Mutant* getClosestMonster(vector<Mutant*> m, int px, int py, int range);
 int getIndex(vector<Mutant*> mutants, Mutant* m);
 bool areMutantsTouching(vector<Mutant*> mutants, int index);
 
+
+
 int main() {
 	srand(time(NULL)); // you have to run srand once to get better random numbers
 
@@ -267,6 +269,9 @@ int main() {
 
 	// drawing stuff
 	while (window.isOpen()) {
+
+		playerBounds = player.getGlobalBounds();
+
 		// checking for certain events
 		Event event;
 		while (window.pollEvent(event)) {
@@ -364,7 +369,11 @@ int main() {
 
 				}
 			}
-			avoidBorders(&player, windowX);
+			
+			else {
+				avoidBorders(&player, windowX);
+			}
+			
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Up) && cooldown <= 0) {
 			//isUpArrowPressed = true;
@@ -445,12 +454,45 @@ int main() {
 			if (isWallDown[index] == false) {
 				window.draw(walls[index]);
 			}
-			window.draw(items[index]);
+			
+			if (isItemInInventory[index] == false) { //Doesn't draw the item if it's already been picked up by the player
+				window.draw(items[index]);
+			}
+
+
 			window.draw(player);
 			// this monster shows up in this room
 			if (screen == 4) {
 				vector<Mutant*>::iterator it = spiders.begin();
 				while (it != spiders.end()) {
+					window.draw(*((*it)->getSprite())); //if the mutant isn't dead draw it
+					it++;
+				}
+			}
+			if (screen == 5) {
+				vector<Mutant*>::iterator it = dogs.begin();
+				while (it != dogs.end()) {
+					window.draw(*((*it)->getSprite())); //if the mutant isn't dead draw it
+					it++;
+				}
+			}
+			if (screen == 6) {
+				vector<Mutant*>::iterator it = bats.begin();
+				while (it != bats.end()) {
+					window.draw(*((*it)->getSprite())); //if the mutant isn't dead draw it
+					it++;
+				}
+			}
+			if (screen == 7) {
+				vector<Mutant*>::iterator it = bears.begin();
+				while (it != bears.end()) {
+					window.draw(*((*it)->getSprite())); //if the mutant isn't dead draw it
+					it++;
+				}
+			}
+			if (screen == 8) {
+				vector<Mutant*>::iterator it = humans.begin();
+				while (it != humans.end()) {
 					window.draw(*((*it)->getSprite())); //if the mutant isn't dead draw it
 					it++;
 				}
@@ -492,6 +534,7 @@ Sprite createWall(Texture *texture, int windowX) {
 }
 
 vector<Mutant*> createMutants(Texture *texture, int windowX, string mutantType) {
+	
 	Sprite* sprite;
 	sprite = new Sprite();
 
@@ -502,13 +545,14 @@ vector<Mutant*> createMutants(Texture *texture, int windowX, string mutantType) 
 
 	for (int i = 0; i < windowX / 320; i++) {
 		sprite->setTexture(*texture);
+
+		sprite->setTextureRect(IntRect(0, 0, 32, 32)); //Prevents some of the sprites from looking smushed (the bear & dog were having issues)
+
 		sprite->setOrigin(sprite->getLocalBounds().width / 2, sprite->getLocalBounds().height / 2);
 		sprite->setScale(windowX / (13.33 * sprite->getLocalBounds().width), windowX / (13.33 * sprite->getLocalBounds().height));
 
-		int x = rand() % (windowX / 3);
-		x *= windowX / 426.67;
-		int y = rand() % (windowX / 3);
-		y *= windowX / 426.67;
+		int x = rand() % (windowX / 3) * 3;
+		int y = rand() % (windowX / 6) * 3;
 		sprite->setPosition(x, y);
 
 		if (mutantType == "Spider") {
@@ -633,10 +677,14 @@ Sprite createItem(Texture *texture, int windowX) {
 	sprite.setTexture(*texture);
 	sprite.setOrigin(sprite.getLocalBounds().width / 2, sprite.getLocalBounds().height / 2);
 	sprite.setScale(windowX / (14.22 * sprite.getLocalBounds().width), windowX / (14.22 * sprite.getLocalBounds().height));
-	int x = rand() % (windowX / 320) * windowX / 320;
-	int y = rand() % (windowX / 320) * windowX / 320;
+	int x = rand() % (windowX / 4) * 4;
+	int y = rand() % (windowX / 8) * 4;
+	 
+	while (x >= (windowX - 200)) { //Prevents item from spawing out of bounds (i.e. in the wall where player can reach it)
+		x = rand() % (windowX / 4) * 4;
+	}
+	
 	sprite.setPosition(x, y);
-
 	return sprite;
 }
 
